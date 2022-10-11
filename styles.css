@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    font-family: 'Inconsolata', monospace;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo {
+    height: 10rem;
+}
+
+#textarea {
+    font-size: large;
+    outline: none;
+    border: none;
+    background-color: rgb(230, 230, 230);
+    padding: .5rem;
+    border-radius: 8px;
+    border-left: 2px solid teal;
+    height: 400px;
+    width: min(75ch, 85%);
+    white-space: pre-wrap;
+    counter-reset: p;
+
+    box-shadow: -40px 0px rgb(190, 190, 190);
+}
+
+p {
+  margin: 0;
+  padding-left: 40px;
+}
+
+p > span {
+  max-width: 75ch;
+  min-height: 1rem;
+  word-wrap: break-word;
+  display: block;
+  margin-bottom: 5px;
+  position: relative;
+  display: flex;
+}
+
+p > span::before {
+    counter-increment: p;
+    content: counter(p) ".";
+    left: -40px;
+    position: absolute;
+}
+
+@keyframes cursorblink {
+    0% {
+        opacity: 100%;
+    }
+    50% {
+        opacity: 0%;
+    }
+    100% {
+        opacity: 100%;
+    }
+}
+#cursor {
+    width: 2px;
+    height: 1rem;
+    background-color: black;
+
+    animation-name: cursorblink;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+
+.keyboard {
+    margin: 2rem;
+}
+
+.keyboard button {
+    margin: .25rem;
+    font-size: larger;
+    font-weight: 800;
+    width: 3em;
+    height: 3em;
+
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    background-color: rgb(240, 240, 240);
+    border: 1px rgb(240, 240, 240);
+
+    transition: 150ms linear;
+}
+
+.keyboard button:hover, .keyboard button:focus-visible {
+    background-color: rgb(200, 200, 200);
+    border: 2px solid teal;
+}
+
+.combos {
+    display: none;
+    position: absolute;
+    left: 0px;
+}
+
+.optionRow {
+    margin-top: 1.5rem;
+}
+.optionRow::before {
+    content: '';
+    margin: .25rem;
+    position: absolute;
+    width: 17.35rem;
+    height: 4px;
+    background-color: teal;
+    transform: translateY(-1rem);
+    border-radius: 8px;
+}
+
+#kbType {
+    margin: .25rem;
+    padding: .5rem;
+    width: 7.25em;
+    height: 3rem;
+    font-size: large;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    background-color: rgb(240, 240, 240);
+    transition: 150ms linear;
+}
+
+#kbType:hover, #kbType:focus-visible {
+    background-color: rgb(220, 220, 220);
+    border: 2px solid lightsalmon;
+}
+
+#setKeys, #info {
+    height: 3rem;
+    padding: .5rem;
+}
+#setKeys:hover, #setKeys:focus-visible, #info:hover, #info:focus-visible {
+    border-color: lightsalmon;
+}
+
+#gh {
+    color: black;
+}
+
+.disclaimer {
+    margin: .5rem;
+    color: red;
+}
