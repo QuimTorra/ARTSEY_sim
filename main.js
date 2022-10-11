@@ -48,7 +48,9 @@ let k13 = document.getElementById("k13");
 let combo = "00000000";
 
 let keyboard = window.localStorage.getItem('kb') || 'esp';
-let keycodes = window.localStorage.getItem('kc').split(',') || [85, 73, 79, 80, 74, 75, 76, 192];
+let keycodes = window.localStorage.getItem('kc');
+if (keycodes == null) keycodes = [85, 73, 79, 80, 74, 75, 76, 192];
+else keycodes = keycodes.split(',');
 
 let editKeyBtn = document.getElementById("setKeys");
 if (keyboard!='custom') editKeyBtn.setAttribute('disabled', true);
